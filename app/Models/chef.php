@@ -12,7 +12,7 @@ class chef extends Model
     protected $fillable = ['name','gender'];
 
     public function cakes(){
-        return $this->hasMany(chef::class);
+        return $this->hasMany(cake::class);
     }
 
 }

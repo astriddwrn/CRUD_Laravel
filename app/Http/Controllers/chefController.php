@@ -41,7 +41,7 @@ class chefController extends Controller
             'name' => $request->name,
             'gender' => $request->gender,
         ]);
-        return back();
+        return redirect('/chef');
     }
 
     /**

@@ -9,19 +9,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <h1 class="text-center ">CAKE STORE</h1>
+    <h1 class="text-center ">CHEF</h1>
+    
     <div class="container d-flex flex-column align-items-center">
-        <a class="btn btn-primary my-3" href="{{route('chef.create')}}" >Add Chef</a>
         <table class="table m-5">
-
         <h1>{{$chef->name}}</h1>
-        <h3>{{$chef->gender}}</h3>
+    <h3>{{$chef->gender}}</h3>
+      
         <thead>
             <tr>
             <th scope="col">ID</th>
             <th scope="col">cake</th>
             <th scope="col">Cake price</th>
-            <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>

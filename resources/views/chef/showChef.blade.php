@@ -12,6 +12,7 @@
     <h1 class="text-center ">CAKE STORE</h1>
     <div class="container d-flex flex-column align-items-center">
         <a class="btn btn-primary my-3" href="{{route('chef.create')}}" >Add Chef</a>
+        <a class="btn btn-secondary my-3" href="/" >Cakes</a>
         <table class="table m-5">
         <thead>
             <tr>
@@ -29,11 +30,13 @@
             <td>{{$chef->gender}}</td>
             <td>
                 <a href="{{route('chef.edit', $chef->id)}}" class="btn btn-success">Edit</a>
+                @if(count($chef->cakes) === 0)
                 <form action="{{route('chef.delete', $chef->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
+                @endif
                 <a href="{{route ('chef.detail', $chef->id)}}" class="btn btn-primary">Details</a>
             </td>
             </tr>
