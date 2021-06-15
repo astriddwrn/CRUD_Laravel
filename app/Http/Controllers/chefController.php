@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\cake;
 use App\Models\chef;
+use App\Models\cake;
 
-class cakeController extends Controller
+class chefController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class cakeController extends Controller
      */
     public function index()
     {
-        
-        $cakes = cake::all();
-        return view('show', compact('cakes'));
+        $chefs = chef::all();
+        return view('./chef/showChef', compact('chefs'));
     }
 
     /**
@@ -27,8 +26,7 @@ class cakeController extends Controller
      */
     public function create()
     {
-        $chefs = chef::all();
-        return view('create', compact('chefs'));
+        return view('./chef/createChef');
     }
 
     /**
@@ -39,13 +37,11 @@ class cakeController extends Controller
      */
     public function store(Request $request)
     {
-        cake::create([
+        chef::create([
             'name' => $request->name,
-            'price' => $request->price,
-            'chef_id' => $request->chef_id,
+            'gender' => $request->gender,
         ]);
-        return redirect('/');
-        
+        return back();
     }
 
     /**
@@ -56,7 +52,7 @@ class cakeController extends Controller
      */
     public function show()
     {
-        
+       
     }
 
     /**
@@ -67,8 +63,8 @@ class cakeController extends Controller
      */
     public function edit($id)
     {
-        $cake = cake::findOrFail($id);
-        return view('edit', compact('cake'));
+        $chef = chef::findOrFail($id);
+        return view('./chef/chefEdit', compact('chef'));
     }
 
     /**
@@ -80,11 +76,11 @@ class cakeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        cake::findOrFail($id)->update([
+        chef::findOrFail($id)->update([
             'name' => $request->name,
-            'price' => $request->price,
+            'gender' => $request->gender,
         ]);
-        return redirect('/');
+        return redirect('/chef');
     }
 
     /**
@@ -95,9 +91,13 @@ class cakeController extends Controller
      */
     public function destroy($id)
     {
-        cake::destroy($id);
+        chef::destroy($id);
         return back();
     }
 
-   
+    public function detail($id)
+    {
+        $chef = chef::findOrFail($id);
+        return view('./chef/chefDetail', compact('chef'));
+    }
 }

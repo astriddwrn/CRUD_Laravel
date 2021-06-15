@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\cakeController;
+use App\Http\Controllers\chefController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +21,23 @@ use App\Http\Controllers\cakeController;
 // });
 
 // Route::get('/', [cakeController::class, 'index']);
-Route::get('/cake', [cakeController::class, 'create'])->name('cake.create');
-Route::post('/cake', [cakeController::class, 'store'])->name('cake.store');
-Route::get('/', [cakeController::class, 'show'])->name('cake.show');
+Route::get('/cake/create', [cakeController::class, 'create'])->name('cake.create');
+Route::post('/cake/create', [cakeController::class, 'store'])->name('cake.store');
+Route::get('/', [cakeController::class, 'index'])->name('cake.index');
 
 Route::get('/cake/edit/{id}', [cakeController::class, 'edit'])->name('cake.edit');
 Route::patch('/cake/{id}', [cakeController::class, 'update'])->name('cake.update');
 
 Route::delete('/cake/{id}', [cakeController::class, 'destroy'])->name('cake.delete');
+
+
+Route::get('/chef/create', [chefController::class, 'create'])->name('chef.create');
+Route::post('/chef/create', [chefController::class, 'store'])->name('chef.store');
+Route::get('/chef', [chefController::class, 'index'])->name('chef.index');
+
+Route::get('/chef/edit/{id}', [chefController::class, 'edit'])->name('chef.edit');
+Route::patch('/chef/{id}', [chefController::class, 'update'])->name('chef.update');
+
+Route::delete('/chef/{id}', [chefController::class, 'destroy'])->name('chef.delete');
+Route::get('/chef/detail/{id}', [chefController::class, 'detail'])->name('chef.detail');
+

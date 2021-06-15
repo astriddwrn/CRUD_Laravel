@@ -11,35 +11,25 @@
 <body>
     <h1 class="text-center ">CAKE STORE</h1>
     <div class="container d-flex flex-column align-items-center">
-        <a class="btn btn-primary my-3" href="{{route('cake.create')}}" >Add Cake</a>
+        <a class="btn btn-primary my-3" href="{{route('chef.create')}}" >Add Chef</a>
         <table class="table m-5">
+
+        <h1>{{$chef->name}}</h1>
+        <h3>{{$chef->gender}}</h3>
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Chef</th>
-            <th scope="col">Chef's Gender</th>
+            <th scope="col">ID</th>
+            <th scope="col">cake</th>
+            <th scope="col">Cake price</th>
             <th scope="col">Action</th>
-
             </tr>
         </thead>
         <tbody>
-        @foreach($cakes as $cake)
+        @foreach($chef->cakes as $cake)
             <tr>
             <th scope="row">{{$cake->id}}</th>
             <td>{{$cake->name}}</td>
             <td>Rp {{$cake->price}}</td>
-            <td>{{$cake->chef->name}}</td>
-            <td>{{$cake->chef->gender}}</td>
-            <td>
-                <a href="{{route('cake.edit', $cake->id)}}" class="btn btn-success">Edit</a>
-                <form action="{{route('cake.delete', $cake->id)}}" method="POST">
-                @csrf
-                @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>
             </tr>
         @endforeach
         </tbody>

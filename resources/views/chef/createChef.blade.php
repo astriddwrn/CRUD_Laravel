@@ -9,24 +9,16 @@
 
     </head>
     <body class="antialiased">
-        <h1 class="my-5 text-center">Add Menu</h1>
-        <form class="m-5" action="{{route('cake.store')}}" method="POST">
+        <h1 class="my-5 text-center">Add Chef</h1>
+        <form class="m-5" action="{{route('chef.store')}}" method="POST">
         @csrf
             <div class="form-group">
-                <label>Cake Name</label>
+                <label>Chef Name</label>
                 <input type="text" class="form-control" name="name">
             </div>
             <div class="form-group">
-                <label>Price</label>
-                <input type="number" class="form-control" name="price">
-            </div>
-            <div class="form-group">
-                <label>Chef</label> <br>
-                <select name="chef_id">
-                    @foreach($chefs as $chef)
-                        <option value="{{$chef->id}}">{{$chef->name}}</option>
-                    @endforeach
-                </select>
+                <label>Gender</label>
+                <input type="text" class="form-control" name="gender">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

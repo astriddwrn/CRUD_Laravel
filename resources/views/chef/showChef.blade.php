@@ -11,34 +11,30 @@
 <body>
     <h1 class="text-center ">CAKE STORE</h1>
     <div class="container d-flex flex-column align-items-center">
-        <a class="btn btn-primary my-3" href="{{route('cake.create')}}" >Add Cake</a>
+        <a class="btn btn-primary my-3" href="{{route('chef.create')}}" >Add Chef</a>
         <table class="table m-5">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
+            <th scope="col">ID</th>
             <th scope="col">Chef</th>
             <th scope="col">Chef's Gender</th>
             <th scope="col">Action</th>
-
             </tr>
         </thead>
         <tbody>
-        @foreach($cakes as $cake)
+        @foreach($chefs as $chef)
             <tr>
-            <th scope="row">{{$cake->id}}</th>
-            <td>{{$cake->name}}</td>
-            <td>Rp {{$cake->price}}</td>
-            <td>{{$cake->chef->name}}</td>
-            <td>{{$cake->chef->gender}}</td>
+            <th scope="row">{{$chef->id}}</th>
+            <td>{{$chef->name}}</td>
+            <td>{{$chef->gender}}</td>
             <td>
-                <a href="{{route('cake.edit', $cake->id)}}" class="btn btn-success">Edit</a>
-                <form action="{{route('cake.delete', $cake->id)}}" method="POST">
+                <a href="{{route('chef.edit', $chef->id)}}" class="btn btn-success">Edit</a>
+                <form action="{{route('chef.delete', $chef->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
+                <a href="{{route ('chef.detail', $chef->id)}}" class="btn btn-primary">Details</a>
             </td>
             </tr>
         @endforeach
