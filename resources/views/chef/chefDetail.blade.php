@@ -13,7 +13,7 @@
     
     <div class="container d-flex flex-column align-items-center">
         <table class="table m-5">
-        <h1>{{$chef->name}}</h1>
+        <h1 class="text-info">{{$chef->name}}</h1>
     <h3>{{$chef->gender}}</h3>
       
         <thead>

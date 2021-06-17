@@ -11,9 +11,12 @@
 <body>
     <h1 class="text-center ">CAKE STORE</h1>
     <div class="container d-flex flex-column align-items-center">
-        <a class="btn btn-primary my-3" href="{{route('chef.create')}}" >Add Chef</a>
         <a class="btn btn-secondary my-3" href="/" >Cakes</a>
-        <table class="table m-5">
+        <div class="container d-flex flex-row justify-content-end">
+            <a class="w-10 btn btn-primary" href="{{route('chef.create')}}" >Add Chef</a>
+        </div>
+        
+        <table class="table mx-5">
         <thead>
             <tr>
             <th scope="col">ID</th>
@@ -28,14 +31,16 @@
             <th scope="row">{{$chef->id}}</th>
             <td>{{$chef->name}}</td>
             <td>{{$chef->gender}}</td>
-            <td>
+            <td class="w-50 d-flex flex-column">
                 <a href="{{route('chef.edit', $chef->id)}}" class="btn btn-success">Edit</a>
                 @if(count($chef->cakes) === 0)
-                <form action="{{route('chef.delete', $chef->id)}}" method="POST">
+                <form class="" action="{{route('chef.delete', $chef->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Delete</button>
+                    <button class="btn w-100 btn-danger" type="submit">Delete</button>
                 </form>
+                @else
+                <div>The Chef has cakes on the menu</div>
                 @endif
                 <a href="{{route ('chef.detail', $chef->id)}}" class="btn btn-primary">Details</a>
             </td>
