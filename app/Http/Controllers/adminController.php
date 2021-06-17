@@ -80,7 +80,7 @@ class adminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
 

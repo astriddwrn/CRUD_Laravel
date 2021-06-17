@@ -11,12 +11,12 @@
 <body>
     <h1 class="text-center ">CAKE STORE</h1>
     <div class="container d-flex flex-column align-items-center">
-        <a class="btn btn-secondary my-3" href="/" >Cakes</a>
+        <a class="btn btn-secondary my-3" href="/cake" >Cakes</a>
         <div class="container d-flex flex-row justify-content-end">
             <a class="w-10 btn btn-primary" href="{{route('chef.create')}}" >Add Chef</a>
         </div>
         
-        <table class="table mx-5">
+        <table class="table m-3">
         <thead>
             <tr>
             <th scope="col">ID</th>

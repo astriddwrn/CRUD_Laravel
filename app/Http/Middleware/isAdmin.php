@@ -18,7 +18,7 @@ class isAdmin
     public function handle(Request $request, Closure $next)
     {
         if(Auth::user()->role != 'admin'){
-            return redirect('/dashboard')->with('error','you are not admin');
+            return redirect('/dashboard')->with(['error','you are not admin']);
         }
         return $next($request);
     }
